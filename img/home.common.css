@@ -1,0 +1,13 @@
+.footer{
+    width: 100vw;
+    height: 5rem;
+background-color: blue;
+
+}
+.footer p {
+    color: antiquewhite;
+    font-size: 1.6rem;
+    text-align: center;
+    text-transform: capitalize;
+   line-height:5rem;
+}

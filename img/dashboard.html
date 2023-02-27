@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard| PG life</title>
+    <link rel="stylesheet" href=" bootstrap.min.css"/>
+    <link href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet" />
+    <link rel ="stylesheet" href="common.css" />
+    <link rel="stylesheet" href="dashboard.css"/>
+</head>
+<style>
+
+    /* Style the list */
+ul.breadcrumb {
+  padding: 10px 16px;
+  list-style: none;
+  background-color: #eee;
+}
+
+/* Display list items side by side */
+ul.breadcrumb li {
+  display: inline;
+  font-size: 18px;
+}
+
+/* Add a slash symbol (/) before/behind each list item */
+ul.breadcrumb li+li:before {
+  padding: 8px;
+  color: black;
+  content: "/\00a0";
+}
+
+/* Add a color to all links inside the list */
+ul.breadcrumb li a {
+  color: #0275d8;
+  text-decoration: none;
+}
+
+/* Add a color on mouse-over */
+ul.breadcrumb li a:hover {
+  color: #01447e;
+  text-decoration: underline;
+}
+{
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    color: #373737;
+    font-size: 16px;
+    position: relative;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 28px;
+    }
+}
+
+h3 {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+h5 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.btn-primary,
+.btn-warning,
+.btn-danger {
+    color: white;
+    font-weight: bold;
+}
+
+.input-group .input-group-text i {
+    width: 14px;
+}
+
+input[type="radio"] {
+    position: relative;
+    top: 1px;
+}
+
+.breadcrumb {
+    background-color: #e5e3e8;
+    font-size: 13px;
+    border-radius: 0px;
+    margin-bottom: 0px;
+}
+
+.container {
+    max-width: 920px;
+    padding: 0px 20px;
+}
+
+.page-container {
+    max-width: 800px;
+    padding: 80px 24px;
+    margin: auto;
+}
+filter-bar > div {
+    cursor: pointer;
+    font-size: 13px;
+    text-align: center;
+    margin-bottom: 16px;
+}
+box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+.property-card:focus,
+.property-card:hover {
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+}
+
+.image-container {
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .image-container {
+        padding-bottom: 12px;
+    }
+}
+
+.image-container img {
+    width: 100%;
+    max-width: 300px;
+}
+
+.star-container i {
+    color: #EA322E;
+    font-size: 10px;
+    margin-right: 6px;
+}
+
+.interested-container {
+    text-align: center;
+}
+
+.interested-container i {
+    color: #EA322E;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.interested-text {
+    font-size: 10px;
+}
+
+.detail-container {
+    padding-bottom: 10px;
+}
+
+.property-name {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.property-address {
+    color: #6f6f6f;
+    font-size: 13px;
+    padding-bottom: 5px;
+}
+
+.property-gender img {
+    width: 40px;
+}
+
+.rent-container {
+    display: flex;
+    align-items: center;
+}
+
+.rent {
+    font-size: 18px;
+    font-weight: bold;
+    padding-right: 10px;
+}
+
+.rent-unit {
+    color: #6f6f6f;
+    font-size: 12px;
+}
+
+.button-container .btn {
+    font-size: 14px;
+    border-radius: 0px;
+    width: 140px;
+    float: right;
+}
+
+/* No Property */
+.no-property-container {
+    margin: 96px auto 144px;
+}
+
+.no-property-container p {
+    font-size: 24px;
+    text-align: center;
+}
+
+/* Filter Modal */
+#filter-modal .modal-dialog {
+    max-width: 600px;
+}
+
+#filter-modal .modal-body h5 {
+    color: #777777;
+}
+
+#filter-modal .modal-body hr {
+    margin: 4px 0px;
+}
+
+#filter-modal .modal-body button {
+    font-size: 14px;
+    width: 100px;
+    margin: 16px;
+}
+
+#filter-modal .modal-body .btn-active {
+    color: #fff;
+    background-color: #343a40;
+}
+
+#filter-modal .modal-body button i {
+    margin-right: 8px;
+}
+
+#filter-modal .modal-footer button {
+    width: 120px;
+}    
+* {
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    color: #373737;
+    font-size: 16px;
+    position: relative;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 28px;
+    }
+}
+
+h3 {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+h5 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.btn-primary,
+.btn-warning,
+.btn-danger {
+    color: white;
+    font-weight: bold;
+}
+
+.input-group .input-group-text i {
+    width: 14px;
+}
+
+input[type="radio"] {
+    position: relative;
+    top: 1px;
+}
+
+.breadcrumb {
+    background-color: #e5e3e8;
+    font-size: 13px;
+    border-radius: 0px;
+    margin-bottom: 0px;
+}
+
+.container {
+    max-width: 920px;
+    padding: 0px 20px;
+}
+
+.page-container {
+    max-width: 800px;
+    padding: 80px 24px;
+    margin: auto;
+} 
+</style>
+<body>
+    <div class="header sticky-top">
+        <nav class="navbar navbar-expand-md navbar-light">
+            <a class="navbar-brand" href="index.html">
+                <img src="logo.png" style="max-height:5rem;"/>
+            </a>
+            
+
+    
+    
+        
+            <div class="container-fluid">
+                <div class="hero-image">
+                    <div class="hero-text">
+                 
+      
+            
+            <div class="collapse navbar-collapse justify-content-end" id="my-navbar">
+                <ul class="navbar-nav">
+                    <div class="nav-name" style="font-size:2rem; color: darkturquoise; position:relative; left: 56rem; top:-5rem">
+                        Hi , Diva Jamwal
+                    </div>
+                    
+                        <a class="nav-link" href="dashboard.html" style=" position: relative;
+                        left: 75rem;
+                        border: 2px solid #004057; top: -73px; color:darkturquoise">
+                            <i class="fas fa-user"></i>Dashboard
+                        </a>
+                    
+<div class="nav-vl"></div>
+
+    <a class="nav-link" href="#" style=" position: relative;
+    left: 77rem; top: -123px;
+    border: 2px solid #004057;  color:darkturquoise">
+        <i class="fas fa-sign-out-alt"></i>logout
+    </a>
+
+</ul>
+</div>
+</nav>
+</div>
+<div id="loading">
+</div>
+<ul class="breadcrumb" style="    position: relative;top: -6rem;color:darkturquoise;">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="dashboard.html">
+        <i class="fas fa-user"></i>Dashboard
+    </a></li>
+    <li>Chandigarh</li>
+  </ul>
+<div class="my-profile page-container">
+    <h2 style="font-size:3rem;position:relative;top:-12rem;left:0rem ;color: darkturquoise;">My profile</h2>
+    <div class="row">
+        <div class="col-md-3 profile-img-container" style="position:relative;top: -13rem; border:groove;width:9rem; color: darkturquoise;">
+            <i class="fas fa-user profile-img fa-10x"></i>
+        </div>
+        <div class="row no-gutters justify-content-between align-items-end"></div>
+    </div>
+</div>
+<div class="container">
+    <h3 style="position:relative; top: -25rem; left:28rem;">Divyanshi Jamwal</h3>
+</div>
+<div class="heading">
+    <h1 style="text-align: center; position:relative;top:-18rem;color: chocolate;">MY interested properties</h1>
+</div>
+<div class="property-card row" style="position:relative;top:-17rem">
+    <div class="image-container col-md-4">
+        <img src="img1.jpg" style="position:relative;right:9rem;top:0rem;" />
+    </div>
+    <div class="content-container col-md-8">
+        <div class="row no-gutters justify-content-between">
+            <div class="star-container" title="4.5" style="position:relative; top:-12rem;left:54rem">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <div class="interested-container" style="position:relative;top:-14rem;left:27rem;">
+                <i class="far fa-heart"></i>
+                <div class="interested-text">3 interested</div>
+            </div>
+        </div>
+        <div class="detail-container" style="position: relative;top:-13rem;left:48rem">
+            <div class="property-name">Navkar Paying Guest</div>
+            <div class="property-address">44, Juhu Scheme, Juhu, Mumbai, Maharashtra 400058</div>
+            <div class="property-gender">
+                <img src="male.png" />
+            </div>
+        </div>
+        <div class="row no-gutters">
+            <div class="rent-container col-6" style="position:relative;left:48rem;top:-13rem;">
+                <div class="rent">Rs 9,500/-</div>
+                <div class="rent-unit">per month</div>
+            </div>
+            <div class="button-container col-6">
+                <a href="property_detail.html" class="btn btn-primary">View</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer" style="position:relative;background:black;height:14rem;">
+    <div class="page-container footer-container">
+        <div class="footer-cities">
+            <div class="footer-city">
+                <a href="property_list.html" style="position: relative; top:0rem;">PG in Delhi</a>
+            </div>
+            <div class="footer-city">
+                <a href="property_list.html" style="position: relative; top:0rem;">PG in Mumbai</a>
+            </div>
+            <div class="footer-city">
+                <a href="property_list.html" style="position: relative; top:0rem;">PG in Bangalore</a>
+            </div>
+            <div class="footer-city">
+                <a href="property_list.html" style="position: relative; top:0rem;">PG in Hyderabad</a>
+            </div>
+        </div>
+        <div class="footer-copyright" style="text-align: center;">© 2020 Copyright PG Life </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+</body>
+</html>
+                        
